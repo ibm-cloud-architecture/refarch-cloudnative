@@ -34,10 +34,10 @@ TODO - Provide architecture write-up
 
 ### Get source code
 
-- Clone the base repository
+- Clone the base repository:
     **`git clone https://github.com/ibm-solution-engineering/refarch-cloudnative`**
 
-- Clone the peer repositories.
+- Clone the peer repositories:
     **`./clonePeers.sh`**
 
 ## Build the application
