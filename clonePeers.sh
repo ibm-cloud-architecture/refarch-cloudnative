@@ -18,6 +18,7 @@ REPO_MICRO_REVIEW="https://github.com/ibm-cloud-architecture/refarch-cloudnative
 REPO_MICRO_FOUDATION="https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-foundation"
 REPO_MYSQL="https://github.com/ibm-cloud-architecture/refarch-cloudnative-mysql"
 REPO_DEVOPS="https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops"
+REPO_NETFLIX_CORE="https://github.com/ibm-cloud-architecture/netflixbluemix-core"
 
 echo 'Cloning peer projects...'
 
@@ -81,6 +82,11 @@ git clone -b ${DEFAULT_BRANCH} ${REPO} ../${PROJECT}
 
 echo -e '\nClone DevOps project'
 REPO=${REPO_DEVOPS}
+PROJECT=$(echo ${REPO} | cut -d/ -f5)
+git clone -b ${DEFAULT_BRANCH} ${REPO} ../${PROJECT}
+
+echo -e '\nClone Netflix Core project'
+REPO=${REPO_NETFLIX_CORE}
 PROJECT=$(echo ${REPO} | cut -d/ -f5)
 git clone -b ${DEFAULT_BRANCH} ${REPO} ../${PROJECT}
 
