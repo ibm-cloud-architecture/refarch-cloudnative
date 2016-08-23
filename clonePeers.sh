@@ -6,18 +6,18 @@
 ##
 ##############################################################################
 
-BASEREPO="https://github.com/ibm-solution-engineering/refarch-cloudnative"
-REPO_MOBILE="https://github.com/ibm-solution-engineering/refarch-cloudnative-bluecompute-mobile"
-REPO_WEB="https://github.com/ibm-solution-engineering/refarch-cloudnative-bluecompute-web"
-REPO_BFF_INVENTORY="https://github.com/ibm-solution-engineering/refarch-cloudnative-bff-inventory"
-REPO_BFF_REVIEW="https://github.com/ibm-solution-engineering/refarch-cloudnative-bff-socialreview"
-REPO_API="https://github.com/ibm-solution-engineering/refarch-cloudnative-api"
-REPO_AUTH="https://github.com/ibm-solution-engineering/refarch-cloudnative-auth"
-REPO_MICRO_INVENTORY="https://github.com/ibm-solution-engineering/refarch-cloudnative-micro-inventory"
-REPO_MICRO_REVIEW="https://github.com/ibm-solution-engineering/refarch-cloudnative-micro-socialreview"
-REPO_MICRO_FOUDATION="https://github.com/ibm-solution-engineering/refarch-cloudnative-micro-foundation"
-REPO_MYSQL="https://github.com/ibm-solution-engineering/refarch-cloudnative-mysql"
-REPO_DEVOPS="https://github.com/ibm-solution-engineering/refarch-cloudnative-devops"
+BASEREPO="https://github.com/ibm-cloud-architecture/refarch-cloudnative"
+REPO_MOBILE="https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-mobile"
+REPO_WEB="https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web"
+REPO_BFF_INVENTORY="https://github.com/ibm-cloud-architecture/refarch-cloudnative-bff-inventory"
+REPO_BFF_REVIEW="https://github.com/ibm-cloud-architecture/refarch-cloudnative-bff-socialreview"
+REPO_API="https://github.com/ibm-cloud-architecture/refarch-cloudnative-api"
+REPO_AUTH="https://github.com/ibm-cloud-architecture/refarch-cloudnative-auth"
+REPO_MICRO_INVENTORY="https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-inventory"
+REPO_MICRO_REVIEW="https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-socialreview"
+REPO_MICRO_FOUDATION="https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-foundation"
+REPO_MYSQL="https://github.com/ibm-cloud-architecture/refarch-cloudnative-mysql"
+REPO_DEVOPS="https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops"
 
 echo 'Cloning peer projects...'
 
