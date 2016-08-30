@@ -4,6 +4,7 @@
 
 This project provides an end to end reference application that covers the work of Mobile/Web, Hybrid Integration, API, Microservices and Service Management on IBM Cloud.
 
+   ![Application Architecture](static/imgs/app_architecture.png?raw=true)
 
 ## Project repositories:
 
