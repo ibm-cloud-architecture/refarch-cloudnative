@@ -17,7 +17,7 @@ This project provides an end to end reference application that covers the work o
  - https://github.com/ibm-cloud-architecture/refarch-cloudnative-auth               - The security/OAauth artifact
  - https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-inventory    - The microservices (SpringBoot) app for Inventory data service (MySQL)
  - https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-socialreview - The microservices (SpringBoot) app for SocialReview data service (Cloudant)
- - https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-foundation   - Contains the Eureka and Zuul containers for Microservices foudnation
+ - https://github.com/ibm-cloud-architecture/microservices-netflix-eureka           - Contains the Eureka containers for Microservices foudnation
  - https://github.com/ibm-cloud-architecture/refarch-cloudnative-mysql              - The MySQL Docker container and database DDL
  - https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops             - The DevOps assets will be managed here
 
