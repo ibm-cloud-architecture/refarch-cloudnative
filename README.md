@@ -92,3 +92,61 @@ That should install the tool and print the version number after the last command
 
 - Clone the peer repositories:
     **`./clonePeers.sh`**
+
+### Step 2: Setup MySQL database and Deploy Inventory microservice as Bluemix Container
+
+After completing this step, you should have Inventory microservice deployed in Bluemix and interacting with MySQL database. You can unit test the microservice as documented in the instruction.
+
+ - Setup MySQL   
+ Please follow the instruction in [refarch-cloudnative-mysql](https://github.com/ibm-cloud-architecture/refarch-cloudnative-mysql) repository to setup the MySQL database.
+
+ - Build and Deploy the Inventory microservice
+ Please follow the instruction in [refarch-cloudnative-micro-inventory](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-inventory) repository to setup the MySQL database.
+
+
+### Step 3: Provision Cloudant database and Deploy SocialReview microservice as Bluemix Container
+
+After completing this step, you should have SocialReview microservice deployed in Bluemix and interacting with hosted Cloudant database. You can unit test the micorservice as documented in the instruction.
+
+Please follow the instruction in [refarch-cloudnative-micro-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-socialreview) repository to setup the Cloudant database and build/deploy the microservice to Bluemix.
+
+### Step 4: Deploy Netflix Eureka/Zuul components to Bluemix Container
+
+We used the Netflix OSS stack to provide some of the microservices foundation services such as service registry and proxy/load balancer. Specifically, we use the Eureka as registry and Zuul as proxy.
+
+Please follow the instruction in [microservices-netflix-eureka](https://github.com/ibm-cloud-architecture/microservices-netflix-eureka) repository to deploy Eureka to Bluemix.
+
+Please follow the instruction in [microservices-netflix-eureka](https://github.com/ibm-cloud-architecture/microservices-netflix-eureka) repository to deploy Zuul to Bluemix.
+
+
+### Step 5: Deploy Inventory BFF Node.js application to Bluemix Cloud Foundry
+
+This bff application will proxy (through Zuul) to the inventory microservice. It also exposes services to IBM API Connect for the Mobile and Web application to consume.
+
+Please follow the instruction in [refarch-cloudnative-bff-inventory](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bff-inventory) repository to build/deploy the Inventory Node.js application to Bluemix Cloud Foundry runtime.
+
+
+### Step 6: Deploy SocialReview BFF Loopback application to Bluemix Cloud Foundry
+
+This Loopback application will proxy (through Zuul) to the SocialReview microservice. It also exposes services to IBM API Connect for the Mobile and Web application to consume.
+
+Please follow the instruction in [refarch-cloudnative-bff-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bff-socialreview) repository to build/deploy the SocialReview Loopback application to Bluemix Cloud Foundry runtime.
+
+### Step 7: Publish Inventory and SocialReview APIs to Bluemix API Connect
+
+Once you have the backend application deployed, it is time to publish the APIs to the IBM Bluemix API connect and Setup developerPortal to consume the API.
+
+Please follow the instruction in [refarch-cloudnative-api](https://github.com/ibm-cloud-architecture/refarch-cloudnative-api) repository to publish APIs to Bluemix API Connect runtime.
+
+
+### Step 8: Integrate the BlueCompute iOS app with IBM Cloud and Mobile Analytics
+
+Time to test the application end-to-end. You can start with running the iOS application to integrate with the APIs as well as monitoring the application using Bluemix Mobile Analytics service.
+
+Please follow the instruction in [refarch-cloudnative-bluecompute-mobile](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-mobile) repository to setup your iOS application.
+
+### Step 9: Integrate BlueCompute Web app with IBM Cloud
+
+You can also validate the omnichannel implementation of the solution by running the BlueCompute Web application.
+
+Please follow the instruction in [refarch-cloudnative-bluecompute-web](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web) repository to setup your Web application.
