@@ -19,7 +19,7 @@ REPO_MICRO_FOUDATION="https://github.com/ibm-cloud-architecture/refarch-cloudnat
 REPO_MYSQL="https://github.com/ibm-cloud-architecture/refarch-cloudnative-mysql"
 REPO_DEVOPS="https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops"
 REPO_NETFLIX_EUREKA="https://github.com/ibm-cloud-architecture/microservices-netflix-eureka"
-
+REPO_NETFLIX_ZUUL="https://github.com/ibm-cloud-architecture/microservices-netflix-zuul"
 echo 'Cloning peer projects...'
 
 GIT_AVAIL=$(which git)
@@ -87,6 +87,11 @@ git clone -b ${DEFAULT_BRANCH} ${REPO} ../${PROJECT}
 
 echo -e '\nClone Netflix Core project'
 REPO=${REPO_NETFLIX_EUREKA}
+PROJECT=$(echo ${REPO} | cut -d/ -f5)
+git clone -b ${DEFAULT_BRANCH} ${REPO} ../${PROJECT}
+
+echo -e '\nClone Netflix Core project'
+REPO=${REPO_NETFLIX_ZUUL}
 PROJECT=$(echo ${REPO} | cut -d/ -f5)
 git clone -b ${DEFAULT_BRANCH} ${REPO} ../${PROJECT}
 
