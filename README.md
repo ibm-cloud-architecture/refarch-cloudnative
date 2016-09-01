@@ -1,4 +1,4 @@
-# Cloud Native Reference Application
+# Cloud Native Microservices Reference Application for OmniChannel
 
 ## Introduction
 
