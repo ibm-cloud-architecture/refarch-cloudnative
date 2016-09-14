@@ -41,11 +41,11 @@ This project runs itself like a microservice project, as such each component in 
  - [microservices-netflix-zuul]( https://github.com/ibm-cloud-architecture/microservices-netflix-zuul)           - Contains the Eureka containers for Microservices foundation  
  - [refarch-cloudnative-mysql](https://github.com/ibm-cloud-architecture/refarch-cloudnative-mysql)              - The MySQL Docker container and database DDL
  
- This project contains tutorials for setting up CI/CD pipleine for the scenarios.  The tutorial is shown below.  
+This project contains tutorials for setting up CI/CD pipleine for the scenarios.  The tutorial is shown below.  
  
  - [refarch-cloudnative-devops](https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops)             - The DevOps assets will be managed here
  
- This project contains tutorials for setting up Resiliency such as High Availablity, Failover, and Disaster Recovery for the above application.
+This project contains tutorials for setting up Resiliency such as High Availablity, Failover, and Disaster Recovery for the above application.
  
  - [refarch-cloudnative-resiliency](https://github.com/ibm-cloud-architecture/refarch-cloudnative-resiliency)   - The Resiliency Assets will be managed here
 
