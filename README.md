@@ -12,15 +12,16 @@ The application is a simple Shopping Application that displays a List of Invento
 
 There are several components of this architecture.  
 
-- This OmniChannel application contains both a Native iOS Application and an angular based web application.  The diagram depicts them as a Device and Browser.  
-- Both Client Applications make API calls through an API Gateway.  The API Gateway is API Connect.  API Connect provides an OAuth Provider as well, allowing you to implement Application Security.  
+- This OmniChannel application contains both a [Native iOS Application](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/) and an [angular](https://angularjs.org/) based web application.  The diagram depicts them as a Device and Browser.  
+- The iOS application uses the [IBM Mobile Analytics Service](https://new-console.ng.bluemix.net/catalog/services/mobile-analytics/) to collect device analytics for operations and business 
+- Both Client Applications make API calls through an API Gateway.  The API Gateway is [API Connect](https://new-console.ng.bluemix.net/catalog/services/api-connect/).  API Connect provides an OAuth Provider as well, allowing you to implement API Security.  
 - The API's are implemented as Node JS Microservices, we call BFFs [Backend for Frontends](http://samnewman.io/patterns/architectural/bff/).  In this Layer, front end developers usually write backend logic for their front end.  The Inventory BFF is implemented using the Express Framework.  The Social Review BFF is implemented using [API Connect's loopback framework](https://docs.strongloop.com/display/APIC/Using+LoopBack+with+IBM+API+Connect).  These Microservices run in Bluemix as CloudFoundry Applications.  
-- The Node JS BFFs invoke another layer of reusable Java Microservices.  In a real world project, this is sometimes written by a different team.  These reusable microservices are written in Java using SpringBoot.  They run inside IBM Containers using Docker.  
-- Node BFF's and Java Microservices communicate to each other using the Netflix OSS Framework.  In this case, we run several Netflix components in Bluemix. 
-    - Zuul provides a proxy layer for the microservices.  
-    - Eureka provides a Service Registry.  The reusable Java Microservices register themselves.
-    - Hystrix Provides an implementation of the Circuit Creaker Pattern.  This runs as library inside the Java Applications.  This component them forward Service Availability information to Hystrix.  
-- The Java Microservices retrieve their data from databases.  The Inventory Application using MySQL.  In this example, we run MySQL in a Docker Container for Development (In a production environment, it runs using our Infrastrcuture as a Service)  The resilliency and DevOps section will explain that.  The SocialReview Java Microservice relies on Cloudant as its Database.
+- The Node JS BFFs invoke another layer of reusable Java Microservices.  In a real world project, this is sometimes written by a different team.  These reusable microservices are written in Java using [SpringBoot](http://projects.spring.io/spring-boot/).  They run inside [IBM Containers](https://new-console.ng.bluemix.net/catalog/images) using [Docker](https://www.docker.com/).  
+- Node BFF's and Java Microservices communicate to each other using the [Netflix OSS Framework](https://netflix.github.io/).  In this case, we run several Netflix components in Bluemix. 
+    - [Zuul](https://github.com/Netflix/zuul) provides a proxy layer for the microservices.  
+    - [Eureka](https://github.com/Netflix/eureka) provides a Service Registry.  The reusable Java Microservices register themselves to Eureka which allows clients to find them.
+    - [Hystrix](https://github.com/Netflix/hystrix) Provides an implementation of the [Circuit Creaker Pattern](http://martinfowler.com/bliki/CircuitBreaker.html).  This component runs as library inside the Java Applications.  This component them forward Service Availability information to the Hystrix Dashboard.  
+- The Java Microservices retrieve their data from databases.  The Inventory Application using [MySQL](https://www.mysql.com/).  In this example, we run MySQL in a Docker Container for Development (In a production environment, it runs using our Infrastrcuture as a Service)  The resilliency and DevOps section will explain that.  The SocialReview Java Microservice relies on [Cloudant](https://new-console.ng.bluemix.net/catalog/services/cloudant-nosql-db/) as its Database.
 
 
 ## Project repositories:
