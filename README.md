@@ -2,11 +2,30 @@
 
 ## Introduction
 
-This project provides an end to end reference application that covers the work of Mobile/Web, Hybrid Integration, API, Microservices and Service Management on IBM Cloud.
+This project provides is a Reference Implementation for building an OmniChannel Application using a microservices architecture.  The Logical Architecture for this reference implementaiton is shown in the picture below.  
 
    ![Application Architecture](static/imgs/app_architecture.png?raw=true)
 
+## Overview
+
+The application is a simple Shopping Application that displays a List of Inventory as well as a Social Review.  Both the Mobile App and Web App rely on separate Microservices to retireve the Inventory data along with the review.  
+
+There are several components of this architecture.  
+
+- This OmniChannel application contains both a Native iOS Application and an angular based web application.  The diagram depicts them as a Device and Browser.  
+- Both Client Applications make API calls through an API Gateway.  The API Gateway is API Connect.  API Connect provides an OAuth Provider as well, allowing you to implement Application Security.  
+- The API's are implemented as Node JS Microservices, we call BFFs [Backend for Frontends](http://samnewman.io/patterns/architectural/bff/).  In this Layer, front end developers usually write backend logic for their front end.  The Inventory BFF is implemented using the Express Framework.  The Social Review BFF is implemented using [API Connect's loopback framework](https://docs.strongloop.com/display/APIC/Using+LoopBack+with+IBM+API+Connect).  These Microservices run in Bluemix as CloudFoundry Applications.  
+- The Node JS BFFs invoke another layer of reusable Java Microservices.  In a real world project, this is sometimes written by a different team.  These reusable microservices are written in Java using SpringBoot.  They run inside IBM Containers using Docker.  
+- Node BFF's and Java Microservices communicate to each other using the Netflix OSS Framework.  In this case, we run several Netflix components in Bluemix. 
+    - Zuul provides a proxy layer for the microservices.  
+    - Eureka provides a Service Registry.  The reusable Java Microservices register themselves.
+    - Hystrix Provides an implementation of the Circuit Creaker Pattern.  This runs as library inside the Java Applications.  This component them forward Service Availability information to Hystrix.  
+- The Java Microservices retrieve their data from databases.  The Inventory Application using MySQL.  In this example, we run MySQL in a Docker Container for Development (In a production environment, it runs using our Infrastrcuture as a Service)  The resilliency and DevOps section will explain that.  The SocialReview Java Microservice relies on Cloudant as its Database.
+
+
 ## Project repositories:
+
+This project runs itself like a microservice project, as such each component in the architecture has its own Git Repositoy and tutorial listed below.  
 
  - [refarch-cloudnative](https://github.com/ibm-cloud-architecture/refarch-cloudnative)                    - The root repository (Current repository)
  - [refarch-cloudnative-bluecompute-mobile](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-mobile) - The BlueCompute client iOS application
@@ -20,7 +39,14 @@ This project provides an end to end reference application that covers the work o
  - [microservices-netflix-eureka](https://github.com/ibm-cloud-architecture/microservices-netflix-eureka)           - Contains the Eureka containers for Microservices foundation
  - [microservices-netflix-zuul]( https://github.com/ibm-cloud-architecture/microservices-netflix-zuul)           - Contains the Eureka containers for Microservices foundation  
  - [refarch-cloudnative-mysql](https://github.com/ibm-cloud-architecture/refarch-cloudnative-mysql)              - The MySQL Docker container and database DDL
+ 
+ This project contains tutorials for setting up CI/CD pipleine for the scenarios.  The tutorial is shown below.  
+ 
  - [refarch-cloudnative-devops](https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops)             - The DevOps assets will be managed here
+ 
+ This project contains tutorials for setting up Resiliency such as High Availablity, Failover, and Disaster Recovery for the above application.
+ 
+ - [refarch-cloudnative-resiliency](https://github.com/ibm-cloud-architecture/refarch-cloudnative-resiliency)   - The Resiliency Assets will be managed here
 
 
 ## Run the reference applications locally and in IBM Cloud
