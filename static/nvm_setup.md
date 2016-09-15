@@ -20,9 +20,9 @@
  There will be some instructions when the installation completes. The steps here follow those instructions.
 
 3. Run **`touch ~/.bash_profile`** then open **`~/.bash_profile`**.
-   This will create and open a file that allows your terminal to be set up.
+   This will create and open a file that configures your terminal environment.
    If you know you are running a different terminal, open that terminal's profile file (for instance, ZSH's file is **`~/.zshrc`**).
-   Add the following to your **`~/.bash_profile file`** each on separate lines:
+   Add the following to your **`~/.bash_profile'** file each on separate lines:
 
  ```
   export NVM_DIR=~/.nvm
