@@ -6,7 +6,7 @@
     If brew isn't installed, then install xcode cli tools, and then install Homebrew.
 
  ```
- $ xcode-select —-install
+ $ xcode-select --install
  $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
  ```
 
@@ -20,9 +20,9 @@
  There will be some instructions when the installation completes. The steps here follow those instructions.
 
 3. Run **`touch ~/.bash_profile`** then open **`~/.bash_profile`**.
-   This will create and open a file that configures your terminal environment.
+   This will create and open a file that configures your Bash shell.
    If you know you are using a different shell, open that terminal's profile file (for instance, ZSH's file is **`~/.zshrc`**).
-   Add the following to your **`~/.bash_profile'** file each on separate lines:
+   Add the following to your **`~/.bash_profile`** file each on separate lines:
 
  ```
   export NVM_DIR=~/.nvm
@@ -31,7 +31,7 @@
 
 4. Save the file, close your terminal, and restart it.
 
-5. Node.js - Install node, API connect requires version 4.
+5. Node.js - Install node, API Connect requires version 4.
 
  ```
  $ nvm install 4
