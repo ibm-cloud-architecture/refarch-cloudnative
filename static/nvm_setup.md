@@ -1,6 +1,10 @@
+#### Before you start
+
+It is important these steps are followed as we want to ensure that Node is installed via NVM to easily switch versions and ensure it is available without root access.  If you are on a Mac and installed Node from the installer instead of Homebrew/NVM, please follow these instructions [Uninstall Node JS from Mac](http://benznext.com/completely-uninstall-node-js-from-mac-os-x/) to remove it before starting over.
+
 #### Installation of Node for Mac OSx
 
-**Note:** After the installation of Homwbrew, these instructions should work for  Windows and linux. Homebrew is a package manager for OSx.
+**Note:** After the installation of Homebrew, these instructions should work for  Windows and linux. Homebrew is a package manager for OSx.
 
 1. Homebrew - Check to see if it's installed by running **`brew -h`** in your terminal
     If brew isn't installed, then install xcode cli tools, and then install Homebrew.
@@ -41,8 +45,6 @@
 the terminal you should see  something like **`Now using node v4.5.0 (npm v2.15.9)`**
 
 #### Some additional resources and notes
-
-If you're a Mac user, Homebrew. It is important these steps are followed as we want to ensure that Node is installed via NVM to easily switch versions and ensure it is available without root access. If you are on a Mac and installed Node from the installer instead of Homebrew/NVM, please follow these instructions [Uninstall Node JS from Mac](http://benznext.com/completely-uninstall-node-js-from-mac-os-x/) to remove it before starting over.
 
 Homebrew (**`brew`**) requires the xcode command line tools. More information can be found at [installing homebrew on OSx](https://coolestguidesontheplanet.com/installing-homebrew-on-os-x-el-capitan-10-11-package-manager-for-unix-apps/).
 

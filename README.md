@@ -61,7 +61,7 @@ runtimes. Additionally you will need to configure your system to run the iOS and
 
 - Install Java JDK 1.8 and ensure it is available in your PATH
 - Install Node.js version 0.12.0 or version 4.x ![Node installation](static/nvm_setup.md)
-- Install Docker on Windows or Mac
+- Install Docker on Windows or Mac ![Docker installation](static/docker_setup.md)
 
 #### Provisioning the API Connect service in Bluemix
 
