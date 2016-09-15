@@ -2,32 +2,32 @@
 
 **Note:** After the installation of Homwbrew, these instructions should work for  Windows and linux. Homebrew is a package manager for OSx.
 
- 1.  Homebrew - Check to see if it's installed by running **`brew -h`** in your terminal
+ 1. Homebrew - Check to see if it's installed by running **`brew -h`** in your terminal
     If brew isn't installed, then install xcode cli tools, and then install Homebrew.
 
-  ```
-  $ xcode-select —install
-  $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
-  ```
+```
+$ xcode-select —install
+$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
+```
 
-  2.  NVM - Install nvm and create an nvm directory within your home directory.
+2. NVM - Install nvm and create an nvm directory within your home directory.
 
-  ```
-  $ brew install nvm
+```
+$ brew install nvm
   $ mkdir ~/.nvm
-  ```
+```
 
-  There will be some instructions when the installation completes. The steps here follow those instructions.
+There will be some instructions when the installation completes. The steps here follow those instructions.
 
-  3.  Run **`touch ~/.bash_profile`** then open **`~/.bash_profile`**.
-     This will create and open a file that allows your terminal to be set up.
-     If you know you are running a different terminal, open that terminal's profile file (for instance, ZSH's file is **`~/.zshrc`**).
-     Add the following to your **`~/.bash_profile file`** each on separate lines:
+3. Run **`touch ~/.bash_profile`** then open **`~/.bash_profile`**.
+   This will create and open a file that allows your terminal to be set up.
+   If you know you are running a different terminal, open that terminal's profile file (for instance, ZSH's file is **`~/.zshrc`**).
+   Add the following to your **`~/.bash_profile file`** each on separate lines:
 
-  ```
-    export NVM_DIR=~/.nvm
-    source $(brew --prefix nvm)/nvm.sh
-  ```
+```
+  export NVM_DIR=~/.nvm
+  source $(brew --prefix nvm)/nvm.sh
+```
 
 4. Save the file, close your terminal, and restart it.
 
