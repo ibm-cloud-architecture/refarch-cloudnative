@@ -118,6 +118,9 @@ That should install the tool and print the version number after the last command
 - Clone the base repository:
     **`git clone https://github.com/ibm-cloud-architecture/refarch-cloudnative`**
 
+- Change to the new directory:
+   ** `cd refarch-cloudnative`**
+
 - Clone the peer repositories:
     **`./clonePeers.sh`**
 
