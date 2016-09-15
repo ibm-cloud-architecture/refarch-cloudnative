@@ -6,7 +6,7 @@
     If brew isn't installed, then install xcode cli tools, and then install Homebrew.
 
  ```
- $ xcode-select —install
+ $ xcode-select —-install
  $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
  ```
 
