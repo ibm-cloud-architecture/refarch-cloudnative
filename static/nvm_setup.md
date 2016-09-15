@@ -2,7 +2,7 @@
 
 **Note:** After the installation of Homwbrew, these instructions should work for  Windows and linux. Homebrew is a package manager for OSx.
 
- 1. Homebrew - Check to see if it's installed by running **`brew -h`** in your terminal
+1. Homebrew - Check to see if it's installed by running **`brew -h`** in your terminal
     If brew isn't installed, then install xcode cli tools, and then install Homebrew.
 
  ```
@@ -24,18 +24,18 @@
    If you know you are running a different terminal, open that terminal's profile file (for instance, ZSH's file is **`~/.zshrc`**).
    Add the following to your **`~/.bash_profile file`** each on separate lines:
 
-```
+ ```
   export NVM_DIR=~/.nvm
   source $(brew --prefix nvm)/nvm.sh
-```
+ ```
 
 4. Save the file, close your terminal, and restart it.
 
 5. Node.js - Install node, API connect requires version 4.
 
-```
-$ nvm install 4
-```
+ ```
+ $ nvm install 4
+ ```
 
 6. Add **`nvm use 4`** on a new line to the same file you edited in Step 3. Save, close, and re-open your terminal. When you repoen
 the terminal you should see  something like **`Now using node v4.5.0 (npm v2.15.9)`**
