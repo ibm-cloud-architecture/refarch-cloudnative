@@ -5,19 +5,19 @@
  1. Homebrew - Check to see if it's installed by running **`brew -h`** in your terminal
     If brew isn't installed, then install xcode cli tools, and then install Homebrew.
 
-```
-$ xcode-select —install
-$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
-```
+ ```
+ $ xcode-select —install
+ $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
+ ```
 
 2. NVM - Install nvm and create an nvm directory within your home directory.
 
-```
-$ brew install nvm
-  $ mkdir ~/.nvm
-```
+ ```
+ $ brew install nvm
+ $ mkdir ~/.nvm
+ ```
 
-There will be some instructions when the installation completes. The steps here follow those instructions.
+ There will be some instructions when the installation completes. The steps here follow those instructions.
 
 3. Run **`touch ~/.bash_profile`** then open **`~/.bash_profile`**.
    This will create and open a file that allows your terminal to be set up.
