@@ -53,11 +53,11 @@ This project contains tutorials for setting up Resiliency such as High Availabli
 To run the sample applications you will need to configure your Bluemix enviroment for the API and Microservices
 runtimes. Additionally you will need to configure your system to run the iOS and Web Application tier as well.
 
-You can leverage Bluemix DevOps open toolchain and delivery pipelines to provision the BlueCompute application stack. The [CloudNative-DevOps repository]https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops)  provides tutorial on how to create the toolchain the execute the pipelines.
+You can leverage Bluemix DevOps open toolchain and delivery pipelines to provision the BlueCompute application stack. The [CloudNative-DevOps repository](https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops)  provides tutorial on how to create the toolchain the execute the pipelines.
 
 ![DevOps Toolchain](static/imgs/bluemix_devops_toolchain.png?raw=true)  
 
-We also recommend you to go through the following manual step to get detail understanding of the platform and application features. 
+We also recommend you to go through the following manual step to get detail understanding of the platform and application features.
 
 
 ### Step 1: Environment Setup
