@@ -163,7 +163,6 @@ This Loopback application will proxy (through Zuul) to the SocialReview microser
 
 Please follow the instruction in [refarch-cloudnative-bff-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bff-socialreview) repository to build/deploy the SocialReview Loopback application to Bluemix Cloud Foundry runtime.
 
-## Exposing APIs through API Connect
 
 ### Step 8: Publish Inventory and SocialReview APIs to Bluemix API Connect
 
