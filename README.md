@@ -1,4 +1,4 @@
-# Cloud Native Microservices Reference Application for OmniChannel
+# Digital Applicaitons using a Microservice Architecture
 
 ## Introduction
 
