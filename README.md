@@ -13,11 +13,11 @@ The application is a simple Shopping Application that displays a List of Invento
 There are several components of this architecture.  
 
 - This OmniChannel application contains both a [Native iOS Application](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/) and an [angular](https://angularjs.org/) based web application.  The diagram depicts them as a Device and Browser.  
-- The iOS application uses the [IBM Mobile Analytics Service](https://new-console.ng.bluemix.net/catalog/services/mobile-analytics/) to collect device analytics for operations and business 
+- The iOS application uses the [IBM Mobile Analytics Service](https://new-console.ng.bluemix.net/catalog/services/mobile-analytics/) to collect device analytics for operations and business
 - Both Client Applications make API calls through an API Gateway.  The API Gateway is [API Connect](https://new-console.ng.bluemix.net/catalog/services/api-connect/).  API Connect provides an OAuth Provider as well, allowing you to implement API Security.  
 - The API's are implemented as Node JS Microservices, we call BFFs [Backend for Frontends](http://samnewman.io/patterns/architectural/bff/).  In this Layer, front end developers usually write backend logic for their front end.  The Inventory BFF is implemented using the Express Framework.  The Social Review BFF is implemented using [API Connect's loopback framework](https://docs.strongloop.com/display/APIC/Using+LoopBack+with+IBM+API+Connect).  These Microservices run in Bluemix as CloudFoundry Applications.  
 - The Node JS BFFs invoke another layer of reusable Java Microservices.  In a real world project, this is sometimes written by a different team.  These reusable microservices are written in Java using [SpringBoot](http://projects.spring.io/spring-boot/).  They run inside [IBM Containers](https://new-console.ng.bluemix.net/catalog/images) using [Docker](https://www.docker.com/).  
-- Node BFF's and Java Microservices communicate to each other using the [Netflix OSS Framework](https://netflix.github.io/).  In this case, we run several Netflix components in Bluemix. 
+- Node BFF's and Java Microservices communicate to each other using the [Netflix OSS Framework](https://netflix.github.io/).  In this case, we run several Netflix components in Bluemix.
     - [Zuul](https://github.com/Netflix/zuul) provides a proxy layer for the microservices.  
     - [Eureka](https://github.com/Netflix/eureka) provides a Service Registry.  The reusable Java Microservices register themselves to Eureka which allows clients to find them.
     - [Hystrix](https://github.com/Netflix/hystrix) Provides an implementation of the [Circuit Creaker Pattern](http://martinfowler.com/bliki/CircuitBreaker.html).  This component runs as library inside the Java Applications.  This component them forward Service Availability information to the Hystrix Dashboard.  
@@ -40,19 +40,17 @@ This project runs itself like a microservice project, as such each component in 
  - [microservices-netflix-eureka](https://github.com/ibm-cloud-architecture/microservices-netflix-eureka)           - Contains the Eureka containers for Microservices foundation
  - [microservices-netflix-zuul]( https://github.com/ibm-cloud-architecture/microservices-netflix-zuul)           - Contains the Eureka containers for Microservices foundation  
  - [refarch-cloudnative-mysql](https://github.com/ibm-cloud-architecture/refarch-cloudnative-mysql)              - The MySQL Docker container and database DDL
- 
+
 This project contains tutorials for setting up CI/CD pipleine for the scenarios.  The tutorial is shown below.  
- 
  - [refarch-cloudnative-devops](https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops)             - The DevOps assets will be managed here
- 
+
 This project contains tutorials for setting up Resiliency such as High Availablity, Failover, and Disaster Recovery for the above application.
- 
  - [refarch-cloudnative-resiliency](https://github.com/ibm-cloud-architecture/refarch-cloudnative-resiliency)   - The Resiliency Assets will be managed here
 
 
 ## Run the reference applications locally and in IBM Cloud
 
-To run the sample applications you will need to configure your Bluemix enviroment for the API and microservices
+To run the sample applications you will need to configure your Bluemix enviroment for the API and Microservices
 runtimes. Additionally you will need to configure your system to run the iOS and Web Application tier as well.
 
 ### Step 1: Environment Setup
