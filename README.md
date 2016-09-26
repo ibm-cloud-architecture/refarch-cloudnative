@@ -1,12 +1,12 @@
 # Digital Applicaitons using a Microservice Architecture
 
-## Introduction
+## Architecture
 
 This project provides is a Reference Implementation for building an OmniChannel Application using a microservices architecture.  The Logical Architecture for this reference implementaiton is shown in the picture below.  
 
    ![Application Architecture](static/imgs/app_architecture.png?raw=true)
 
-## Overview
+## Applicaiton Overview
 
 The application is a simple Shopping Application that displays a List of Inventory as well as a Social Review.  Both the Mobile App and Web App rely on separate Microservices to retrieve the Inventory data along with the review.  
 
@@ -85,6 +85,9 @@ This walkthrough uses the `cf` tool.
 
 - Clone the peer repositories:
     **`./clonePeers.sh`**
+    
+    
+## Building Microservices with Docker Containers    
 
 ### Step 2: Setup MySQL database and Deploy Inventory microservice as Bluemix Container
 
@@ -110,7 +113,8 @@ We used the Netflix OSS stack to provide some of the microservices foundation se
 Please follow the instruction in [microservices-netflix-eureka](https://github.com/ibm-cloud-architecture/microservices-netflix-eureka) repository to deploy Eureka to Bluemix.
 
 Please follow the instruction in [microservices-netflix-zuul]( https://github.com/ibm-cloud-architecture/microservices-netflix-zuul) repository to deploy Zuul to Bluemix.  
-
+    
+## Building External Facing Microservices with Cloud Foundry and API Connect
 
 ### Step 5:  Setup your API Connect Gateway
 
@@ -145,6 +149,7 @@ $ apic -version
 That should install the tool and print the version number after the last command.
 
 
+
 ### Step 6: Deploy Inventory BFF Node.js application to Bluemix Cloud Foundry
 
 This bff application will proxy (through Zuul) to the inventory microservice. It also exposes services to IBM API Connect for the Mobile and Web application to consume.
@@ -158,12 +163,15 @@ This Loopback application will proxy (through Zuul) to the SocialReview microser
 
 Please follow the instruction in [refarch-cloudnative-bff-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bff-socialreview) repository to build/deploy the SocialReview Loopback application to Bluemix Cloud Foundry runtime.
 
+## Exposing APIs through API Connect
+
 ### Step 8: Publish Inventory and SocialReview APIs to Bluemix API Connect
 
 Once you have the backend application deployed, it is time to publish the APIs to the IBM Bluemix API connect and Setup developerPortal to consume the API.
 
 Please follow the instruction in [refarch-cloudnative-api](https://github.com/ibm-cloud-architecture/refarch-cloudnative-api) repository to publish APIs to Bluemix API Connect runtime.
 
+## Building Web and Mobile Applications
 
 ### Step 9: Integrate the BlueCompute iOS app with IBM Cloud and Mobile Analytics
 
