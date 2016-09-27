@@ -6,7 +6,7 @@ This project provides is a Reference Implementation for building an OmniChannel 
 
    ![Application Architecture](static/imgs/app_architecture.png?raw=true)
 
-## Applicaiton Overview
+## Application Overview
 
 The application is a simple Shopping Application that displays a List of Inventory as well as a Social Review.  Both the Mobile App and Web App rely on separate Microservices to retrieve the Inventory data along with the review.  
 
