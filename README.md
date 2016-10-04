@@ -1,8 +1,8 @@
-# Digital Applicaitons using a Microservice Architecture
+# Digital Applications using a Microservice Architecture
 
 ## Architecture
 
-This project provides is a Reference Implementation for building an OmniChannel Application using a microservices architecture.  The Logical Architecture for this reference implementaiton is shown in the picture below.  
+This project provides is a Reference Implementation for building an OmniChannel Application using a microservices architecture.  The Logical Architecture for this reference implementation is shown in the picture below.  
 
    ![Application Architecture](static/imgs/app_architecture.png?raw=true)
 
@@ -21,12 +21,12 @@ There are several components of this architecture.
     - [Zuul](https://github.com/Netflix/zuul) provides a proxy layer for the microservices.  
     - [Eureka](https://github.com/Netflix/eureka) provides a Service Registry.  The reusable Java Microservices register themselves to Eureka which allows clients to find them.
     - [Hystrix](https://github.com/Netflix/hystrix) Provides an implementation of the [Circuit Creaker Pattern](http://martinfowler.com/bliki/CircuitBreaker.html).  This component runs as library inside the Java Applications.  This component them forward Service Availability information to the Hystrix Dashboard.  
-- The Java Microservices retrieve their data from databases.  The Inventory Application using [MySQL](https://www.mysql.com/).  In this example, we run MySQL in a Docker Container for Development (In a production environment, it runs using our Infrastrcuture as a Service)  The resilliency and DevOps section will explain that.  The SocialReview Java Microservice relies on [Cloudant](https://new-console.ng.bluemix.net/catalog/services/cloudant-nosql-db/) as its Database.
+- The Java Microservices retrieve their data from databases.  The Inventory Application using [MySQL](https://www.mysql.com/).  In this example, we run MySQL in a Docker Container for Development (In a production environment, it runs using our Infrastrcuture as a Service)  The resiliency and DevOps section will explain that.  The SocialReview Java Microservice relies on [Cloudant](https://new-console.ng.bluemix.net/catalog/services/cloudant-nosql-db/) as its Database.
 
 
 ## Project repositories:
 
-This project runs itself like a microservice project, as such each component in the architecture has its own Git Repositoy and tutorial listed below.  
+This project runs itself like a microservice project, as such each component in the architecture has its own Git Repository and tutorial listed below.  
 
  - [refarch-cloudnative](https://github.com/ibm-cloud-architecture/refarch-cloudnative)                    - The root repository (Current repository)
  - [refarch-cloudnative-bluecompute-mobile](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-mobile) - The BlueCompute client iOS application
