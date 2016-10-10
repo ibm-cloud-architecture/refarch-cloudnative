@@ -18,8 +18,8 @@ REPO_MICRO_REVIEW="https://github.com/ibm-cloud-architecture/refarch-cloudnative
 REPO_MICRO_FOUDATION="https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-foundation"
 REPO_MYSQL="https://github.com/ibm-cloud-architecture/refarch-cloudnative-mysql"
 REPO_DEVOPS="https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops"
-REPO_NETFLIX_EUREKA="https://github.com/ibm-cloud-architecture/microservices-netflix-eureka"
-REPO_NETFLIX_ZUUL="https://github.com/ibm-cloud-architecture/microservices-netflix-zuul"
+REPO_NETFLIX_EUREKA="https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-eureka"
+REPO_NETFLIX_ZUUL="https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-zuul"
 echo 'Cloning peer projects...'
 
 GIT_AVAIL=$(which git)
