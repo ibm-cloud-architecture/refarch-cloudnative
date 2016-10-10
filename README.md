@@ -37,8 +37,8 @@ This project runs itself like a microservice project, as such each component in 
  - [refarch-cloudnative-auth](https://github.com/ibm-cloud-architecture/refarch-cloudnative-auth)               - The security/OAauth artifact
  - [refarch-cloudnative-micro-inventory](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-inventory)    - The microservices (SpringBoot) app for Inventory data service (MySQL)
  - [refarch-cloudnative-micro-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-socialreview) - The microservices (SpringBoot) app for SocialReview data service (Cloudant)
- - [microservices-netflix-eureka](https://github.com/ibm-cloud-architecture/microservices-netflix-eureka)           - Contains the Eureka containers for Microservices foundation
- - [microservices-netflix-zuul]( https://github.com/ibm-cloud-architecture/microservices-netflix-zuul)           - Contains the Eureka containers for Microservices foundation  
+ - [refarch-cloudnative-netflix-eureka](https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-eureka)           - Contains the Eureka containers for Microservices foundation
+ - [refarch-cloudnative-netflix-zuul]( https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-zuul)           - Contains the Eureka containers for Microservices foundation  
  - [refarch-cloudnative-mysql](https://github.com/ibm-cloud-architecture/refarch-cloudnative-mysql)              - The MySQL Docker container and database DDL
 
 This project contains tutorials for setting up CI/CD pipleine for the scenarios.  The tutorial is shown below.  
@@ -110,9 +110,9 @@ Please follow the instruction in [refarch-cloudnative-micro-socialreview](https:
 
 We used the Netflix OSS stack to provide some of the microservices foundation services such as service registry and proxy/load balancer. Specifically, we use the Eureka as registry and Zuul as proxy.
 
-Please follow the instruction in [microservices-netflix-eureka](https://github.com/ibm-cloud-architecture/microservices-netflix-eureka) repository to deploy Eureka to Bluemix.
+Please follow the instruction in [refarch-cloudnative-netflix-eureka](https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-eureka) repository to deploy Eureka to Bluemix.
 
-Please follow the instruction in [microservices-netflix-zuul]( https://github.com/ibm-cloud-architecture/microservices-netflix-zuul) repository to deploy Zuul to Bluemix.  
+Please follow the instruction in [refarch-cloudnative-netflix-zuul]( https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-zuul) repository to deploy Zuul to Bluemix.  
     
 ## Building External Facing Microservices with Cloud Foundry and API Connect
 
