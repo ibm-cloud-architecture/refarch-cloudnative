@@ -9,7 +9,7 @@ Security is critical for developing and hosting the BlueCompute application on I
 - Intra-component auth via JWT Token
 
 The overall security diagram is shown below:  
-![Security Overview](static/imgs/OmniChannelEndToEnd_security.png?raw=true)  
+![Security Overview](imgs/OmniChannelEndToEnd_security.png?raw=true)  
 
 
 ## Security flow
