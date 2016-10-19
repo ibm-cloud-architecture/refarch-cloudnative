@@ -44,9 +44,9 @@ This project runs itself like a microservice project, as such each component in 
 This project contains tutorials for setting up CI/CD pipleine for the scenarios.  The tutorial is shown below.  
  - [refarch-cloudnative-devops](https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops)             - The DevOps assets will be managed here
 
-This project contains tutorials for setting up Resiliency such as High Availablity, Failover, and Disaster Recovery for the above application.
+This project contains tutorials for setting up Resiliency such as High Availability, Failover, and Disaster Recovery for the above application.
  - [refarch-cloudnative-resiliency](https://github.com/ibm-cloud-architecture/refarch-cloudnative-resiliency)   - The Resiliency Assets will be managed here
-
+- [refarch-cloudnative-csmo](https://github.com/ibm-cloud-architecture/refarch-cloudnative-csmo)   - The BlueCompute application end-to-end cloud service management
 
 ## Run the reference applications locally and in IBM Cloud
 
@@ -85,8 +85,8 @@ This walkthrough uses the `cf` tool.
 
 - Clone the peer repositories:
     **`./clonePeers.sh`**
-    
-    
+
+
 ## Building Microservices with Docker Containers    
 
 ### Step 2: Setup MySQL database and Deploy Inventory microservice as Bluemix Container
@@ -113,7 +113,7 @@ We used the Netflix OSS stack to provide some of the microservices foundation se
 Please follow the instruction in [refarch-cloudnative-netflix-eureka](https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-eureka) repository to deploy Eureka to Bluemix.
 
 Please follow the instruction in [refarch-cloudnative-netflix-zuul]( https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-zuul) repository to deploy Zuul to Bluemix.  
-    
+
 ## Building External Facing Microservices with Cloud Foundry and API Connect
 
 ### Step 5:  Setup your API Connect Gateway
