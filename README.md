@@ -46,7 +46,7 @@ This project contains tutorials for setting up CI/CD pipleine for the scenarios.
 
 This project contains tutorials for setting up Resiliency such as High Availability, Failover, and Disaster Recovery for the above application.
  - [refarch-cloudnative-resiliency](https://github.com/ibm-cloud-architecture/refarch-cloudnative-resiliency)   - The Resiliency Assets will be managed here
-- [refarch-cloudnative-csmo](https://github.com/ibm-cloud-architecture/refarch-cloudnative-csmo)   - The BlueCompute application end-to-end cloud service management
+ - [refarch-cloudnative-csmo](https://github.com/ibm-cloud-architecture/refarch-cloudnative-csmo)   - The BlueCompute application end-to-end cloud service management
 
 ## Run the reference applications locally and in IBM Cloud
 
