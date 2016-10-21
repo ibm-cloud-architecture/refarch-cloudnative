@@ -184,10 +184,13 @@ You can also validate the reference implementation of the solution by running th
 
 Please follow the instruction in [refarch-cloudnative-bluecompute-web](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web) repository to setup your Web application.
 
-## DevOps automation and Cloud Management and Monitoring
+## DevOps automation, Resiliency and Cloud Management and Monitoring
 
 ### DevOps
 You can setup and enable automated CI/CD for most of the BlueCompute components via the Bluemix DevOps open toolchain. For detail, please check the [DevOps project](https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops) .
 
 ### Cloud Management and monitoring
 For guidance on how to manage and monitor the BlueCompute solution, please check the [Management and Monitoring project](https://github.com/ibm-cloud-architecture/refarch-cloudnative-csmo).
+
+### Making Microservices Resilient
+Please check [this repository](https://github.com/ibm-cloud-architecture/refarch-cloudnative-resiliency) on instructions and tools to improve availability and performances of the BlueCompute application.
