@@ -6,6 +6,12 @@
 ##
 ##############################################################################
 
+if [ -z "$1" ]; then
+    MYBRANCH=`git rev-parse --abbrev-ref HEAD`
+else
+    MYBRANCH=$1
+fi
+
 BASEREPO="https://github.com/ibm-cloud-architecture/refarch-cloudnative"
 REPO_MOBILE="https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-mobile"
 REPO_WEB="https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web"
@@ -28,7 +34,7 @@ if [ ${?} -ne 0 ]; then
   exit 1
 fi
 
-DEFAULT_BRANCH=${1:-master}
+DEFAULT_BRANCH=${MYBRANCH:-master}
 
 echo -e '\nClone BlueCompute Mobile project'
 REPO=${REPO_MOBILE}
