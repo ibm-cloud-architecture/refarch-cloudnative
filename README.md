@@ -125,7 +125,7 @@ Please follow the instruction in [refarch-cloudnative-netflix-zuul]( https://git
 3. In API Connect creation page, specify the Service name anything you like or keep the default. Then select the free **Essentials** plan for this walkthrough. Click the "Create" button to provision the service.
 4. After the API Connect service is created, you will be automatically redirected to API Management console.
 5. In the API Manager page, navigate to the API Connect Dashboard and select "Add Catalog" at the top left. You may notice that a
-sandbox has automatically been generated for you. ![API Info](static/imgs/bluemix_4.png?raw=true)
+sandbox has automatically been generated for you. ![API Info](static/imgs/apic_catalog_create.png?raw=true)
 6. Name the catalog "**BlueCompute**" and press "Add".
 7. Select the catalog and then navigate to the Settings tab and click the Portal sub-tab.
 8. To setup a Developer Portal that your consumers can use to explore your API, select the IBM Developer Portal radio button. Then click the "Save" button to top right menu section. This will
