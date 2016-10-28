@@ -120,11 +120,11 @@ Please follow the instruction in [refarch-cloudnative-netflix-zuul]( https://git
 
 #### Provision the API Connect Service
 
-1. Click on the Bluemix console and select API as shown in the figure below. ![API Info](static/imgs/bluemix_1.png?raw=true)
-2. Select the API Connect service as shown below. ![API Info](static/imgs/bluemix_2.png?raw=true)
-3. Click "Create" in the Getting Started with API Connect page. In API Connect creation page, specify the Service name anything you like or keep the default. Then select the free Essentials plan for this walkthrough.
-4. After the API Connect service is created, launch the API Connect service by clicking "Launch API Manager" ![API Info](static/imgs/bluemix_3.png?raw=true)
-5.  In the API Manager page, navigate to the API Connect Dashboard and select "Add Catalog" at the top left. You may notice that a
+1. Log in to [the Bluemix console](https://console.ng.bluemix.net)
+2. From the Bluemix menu, Select Services -> APIs, then click the **API Connect** tile in the page.
+3. In API Connect creation page, specify the Service name anything you like or keep the default. Then select the free **Essentials** plan for this walkthrough. Click the "Create" button to provision the service.
+4. After the API Connect service is created, you will be automatically redirected to API Management console.
+5. In the API Manager page, navigate to the API Connect Dashboard and select "Add Catalog" at the top left. You may notice that a
 sandbox has automatically been generated for you. ![API Info](static/imgs/bluemix_4.png?raw=true)
 6. Name the catalog "**BlueCompute**" and press "Add".
 7. Select the catalog and then navigate to the Settings tab and click the Portal sub-tab.
