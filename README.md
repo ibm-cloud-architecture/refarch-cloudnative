@@ -193,3 +193,6 @@ For guidance on how to manage and monitor the BlueCompute solution, please check
 
 ### Making Microservices Resilient
 Please check [this repository](https://github.com/ibm-cloud-architecture/refarch-cloudnative-resiliency) on instructions and tools to improve availability and performances of the BlueCompute application.
+
+### Secure The Application
+Please review [this page](https://github.com/ibm-cloud-architecture/refarch-cloudnative/blob/master/static/security.md) on how to secure the solution end-to-end.
