@@ -122,14 +122,13 @@ Please follow the instruction in [refarch-cloudnative-netflix-zuul]( https://git
 
 1. Log in to [the Bluemix console](https://console.ng.bluemix.net)
 2. From the Bluemix menu, Select Services -> APIs, then click the **API Connect** tile in the page.
-3. In API Connect creation page, specify the Service name anything you like or keep the default. Then select the free **Essentials** plan for this walkthrough. Click the "Create" button to provision the service.
-4. After the API Connect service is created, you will be automatically redirected to API Management console.
-5. In the API Manager page, navigate to the API Connect Dashboard and select "Add Catalog" at the top left. You may notice that a sandbox has automatically been generated for you.
+3. In API Connect creation page, specify the Service name anything you like or keep the default. Then select the free **Essentials** plan for this walkthrough. Click the "Create" button to provision the service.  
+4. After the API Connect service is created, you will be automatically redirected to API Management console.  
+5. In the API Manager page, navigate to the API Connect Dashboard and select "Add Catalog" at the top left. You may notice that a sandbox has automatically been generated for you.  
 ![API Info](static/imgs/apic_catalog_create.png?raw=true)
 6. Name the catalog "**BlueCompute**" and press "Add".
 7. Select the catalog and then navigate to the Settings tab and click the Portal sub-tab.
-8. To setup a Developer Portal that your consumers can use to explore your API, select the IBM Developer Portal radio button. Then click the "Save" button to top right menu section. This will
-provision a portal for you. You should receive a message like the one below. ![API Info](static/imgs/bluemix_9.png?raw=true)
+8. To setup a Developer Portal that your consumers can use to explore your API, select the IBM Developer Portal radio button. Then click the "Save" button to top right menu section. This will provision a portal for you. You should receive a message like the one below. ![API Info](static/imgs/bluemix_9.png?raw=true)
 9. Once the new Developer Portal has been created, you will receive an email.
 
 
