@@ -89,7 +89,16 @@ This walkthrough uses the `cf` tool.
 
 ## Building Microservices with Docker Containers    
 
-### Step 2: Setup MySQL database and Deploy Inventory microservice as Bluemix Container
+### Step 2: Deploy Netflix Eureka/Zuul components to Bluemix Container
+
+We used the Netflix OSS stack to provide some of the microservices foundation services such as service registry and proxy/load balancer. Specifically, we use the Eureka as registry and Zuul as proxy.
+
+Please follow the instruction in [refarch-cloudnative-netflix-eureka](https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-eureka) repository to deploy Eureka to Bluemix.
+
+Please follow the instruction in [refarch-cloudnative-netflix-zuul]( https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-zuul) repository to deploy Zuul to Bluemix.  
+
+
+### Step 3: Setup MySQL database and Deploy Inventory microservice as Bluemix Container
 
 After completing this step, you should have Inventory microservice deployed in Bluemix and interacting with MySQL database. You can unit test the microservice as documented in the instruction.
 
@@ -100,19 +109,11 @@ After completing this step, you should have Inventory microservice deployed in B
  Please follow the instruction in [refarch-cloudnative-micro-inventory](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-inventory) repository to setup the MySQL database.
 
 
-### Step 3: Provision Cloudant database and Deploy SocialReview microservice as Bluemix Container
+### Step 4: Provision Cloudant database and Deploy SocialReview microservice as Bluemix Container
 
 After completing this step, you should have SocialReview microservice deployed in Bluemix and interacting with hosted Cloudant database. You can unit test the micorservice as documented in the instruction.
 
 Please follow the instruction in [refarch-cloudnative-micro-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-socialreview) repository to setup the Cloudant database and build/deploy the microservice to Bluemix.
-
-### Step 4: Deploy Netflix Eureka/Zuul components to Bluemix Container
-
-We used the Netflix OSS stack to provide some of the microservices foundation services such as service registry and proxy/load balancer. Specifically, we use the Eureka as registry and Zuul as proxy.
-
-Please follow the instruction in [refarch-cloudnative-netflix-eureka](https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-eureka) repository to deploy Eureka to Bluemix.
-
-Please follow the instruction in [refarch-cloudnative-netflix-zuul]( https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-zuul) repository to deploy Zuul to Bluemix.  
 
 ## Building External Facing Microservices with Cloud Foundry and API Connect
 
