@@ -69,6 +69,8 @@ In order to complete the rest of this tutorial, many commands will require the B
 
 This walkthrough uses the `cf` tool.
 
+To work with Bluemix Container service, you will need to install IBM Container plugin for cf tool. Follow this instruction to [Install IBM Container CLI plugin](https://console.ng.bluemix.net/docs/containers/container_cli_cfic.html)  
+
 #### Create a New Space in Bluemix
 
 1. Click on the Bluemix account in the top right corner of the web interface.
