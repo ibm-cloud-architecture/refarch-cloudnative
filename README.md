@@ -83,6 +83,9 @@ This walkthrough uses the `cf` tool.
 - Clone the base repository:
     **`git clone https://github.com/ibm-cloud-architecture/refarch-cloudnative`**
 
+- Change to the new directory:
+   ** `cd refarch-cloudnative`**
+
 - Clone the peer repositories:
     **`./clonePeers.sh`**
 
