@@ -142,7 +142,7 @@ To install the APIC Connect CLI:
 
 ```
 $ npm install -g apiconnect
-$ apic -version
+$ apic --version
 ```
 
 That should install the tool and print the version number after the last command.
