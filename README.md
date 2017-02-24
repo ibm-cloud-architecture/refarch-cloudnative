@@ -126,7 +126,7 @@ After completing this step, you should have the Order microservice deployed in B
 
 ## Building External Facing Microservices with Cloud Foundry and API Connect
 
-### Step 5:  Setup your API Connect Gateway
+### Step 7:  Setup your API Connect Gateway
 
 #### Provision the API Connect Service
 
@@ -158,40 +158,26 @@ $ apic --version
 That should install the tool and print the version number after the last command.
 
 
+### Step 8: Publish application APIs to Bluemix API Connect
 
-### Step 6: Deploy Inventory BFF Node.js application to Bluemix Cloud Foundry
-
-This bff application will proxy (through Zuul) to the inventory microservice. It also exposes services to IBM API Connect for the Mobile and Web application to consume.
-
-Please follow the instruction in [refarch-cloudnative-bff-inventory](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bff-inventory) repository to build/deploy the Inventory Node.js application to Bluemix Cloud Foundry runtime.
-
-
-### Step 7: Deploy SocialReview BFF Loopback application to Bluemix Cloud Foundry
-
-This Loopback application will proxy (through Zuul) to the SocialReview microservice. It also exposes services to IBM API Connect for the Mobile and Web application to consume.
-
-Please follow the instruction in [refarch-cloudnative-bff-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bff-socialreview) repository to build/deploy the SocialReview Loopback application to Bluemix Cloud Foundry runtime.
-
-
-### Step 8: Publish Inventory and SocialReview APIs to Bluemix API Connect
-
-Once you have the backend application deployed, it is time to publish the APIs to the IBM Bluemix API connect and Setup developerPortal to consume the API.
+Once you have all the backend application (Catalog/Inventory/Customer/Order/SocialReview) deployed, it is time to publish the APIs to the IBM Bluemix API connect and Setup developerPortal to consume the API.
 
 Please follow the instruction in [refarch-cloudnative-api](https://github.com/ibm-cloud-architecture/refarch-cloudnative-api) repository to publish APIs to Bluemix API Connect runtime.
 
 ## Building Web and Mobile Applications
 
-### Step 9: Integrate the BlueCompute iOS app with IBM Cloud and Mobile Analytics
+### Step 10: Deploy the BlueCompute Web app
+
+This step will deploy the Node.js application containing both the Web BFF and the front end AngularJS application.
+
+Please follow the instruction in [refarch-cloudnative-bluecompute-web](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web) repository to setup and validate your Web application.
+
+### Step 10: Integrate the BlueCompute iOS app with IBM Cloud and Mobile Analytics
 
 Time to test the application end-to-end. You can start with running the iOS application to integrate with the APIs as well as monitoring the application using Bluemix Mobile Analytics service.
 
 Please follow the instruction in [refarch-cloudnative-bluecompute-mobile](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-mobile) repository to setup your iOS application.
 
-### Step 10: Integrate BlueCompute Web app with IBM Cloud
-
-You can also validate the reference implementation of the solution by running the BlueCompute Web application.
-
-Please follow the instruction in [refarch-cloudnative-bluecompute-web](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web) repository to setup your Web application.
 
 ## DevOps automation, Resiliency and Cloud Management and Monitoring
 
@@ -205,4 +191,4 @@ For guidance on how to manage and monitor the BlueCompute solution, please check
 Please check [this repository](https://github.com/ibm-cloud-architecture/refarch-cloudnative-resiliency) on instructions and tools to improve availability and performances of the BlueCompute application.
 
 ### Secure The Application
-Please review [this page](https://github.com/ibm-cloud-architecture/refarch-cloudnative/blob/master/static/security.md) on how to secure the solution end-to-end.
+Please review [this page](https://github.com/ibm-cloud-architecture/refarch-cloudnative/blob/master/static/security.md) on how we secure the solution end-to-end.
