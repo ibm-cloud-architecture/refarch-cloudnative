@@ -22,27 +22,28 @@ There are several components of this architecture.
     - [Zuul](https://github.com/Netflix/zuul) provides a proxy layer for the microservices.  
     - [Eureka](https://github.com/Netflix/eureka) provides a Service Registry.  The reusable Java Microservices register themselves to Eureka which allows clients to find them.
     - [Hystrix](https://github.com/Netflix/hystrix) Provides an implementation of the [Circuit Breaker Pattern](http://martinfowler.com/bliki/CircuitBreaker.html).  This component runs as library inside the Java Applications.  This component them forward Service Availability information to the Hystrix Dashboard.  
-- The Java Microservices retrieve their data from databases.  The Catalog service retrieves items from in-memory datasource using [ElasticSearch](https://www.elastic.co/). The Inventory Service using [MySQL](https://www.mysql.com/).  In this example, we run MySQL in a Docker Container for Development (In a production environment, it runs on our Infrastructure as a Service layer, [Softlayer](http://www.softlayer.com))  The resiliency and DevOps section will explain that.  The SocialReview Microservice relies on [Cloudant](https://new-console.ng.bluemix.net/catalog/services/cloudant-nosql-db/) as its Database. The application also relies on [Bluemix Object Storage](https://console.ng.bluemix.net/catalog/object-storage/) to store unstructured data such as images.
+- The Java Microservices retrieve their data from databases.  The Catalog service retrieves items from in-memory datasource using [ElasticSearch](https://www.elastic.co/). The Inventory Service using [MySQL](https://www.mysql.com/).  In this example, we run MySQL in a Docker Container for Development (In a production environment, it runs on our Infrastructure as a Service layer, [Bluemix Infrastructure](https://console.ng.bluemix.net/catalog/?category=infrastructure))  The resiliency and DevOps section will explain that.  The SocialReview Microservice relies on [Cloudant](https://new-console.ng.bluemix.net/catalog/services/cloudant-nosql-db/) as its Database. The application also relies on [Bluemix Object Storage](https://console.ng.bluemix.net/catalog/object-storage/) to store unstructured data such as images.
 
 ## Project repositories:
 
-This project runs itself like a microservice project, as such each component in the architecture has its own Git Repository and tutorial listed below.  
+This project organized itself like a microservice project, as such each component in the architecture has its own Git Repository and tutorial listed below.  
 
  - [refarch-cloudnative](https://github.com/ibm-cloud-architecture/refarch-cloudnative)                    - The root repository (Current repository)
- - [refarch-cloudnative-bluecompute-mobile](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-mobile) - The BlueCompute client iOS application
- - [refarch-cloudnative-bluecompute-web](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web)    - The BlueCompute client Web application
- - [refarch-cloudnative-bff-inventory](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bff-inventory)      - The cloud Foundry node.js app for Inventory bff
- - [refarch-cloudnative-bff-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bff-socialreview)   - The cloud Foundry node.js app for SocialReview bff
+ - [refarch-cloudnative-bluecompute-mobile](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-mobile) - The BlueCompute client iOS and Android applications
+ - [refarch-cloudnative-bluecompute-web](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web)    - The BlueCompute Web application with BFF services
+ - [refarch-cloudnative-bluecompute-bff-ios](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-bff-ios)   - The Swift based BFF application for the iOS application
  - [refarch-cloudnative-api](https://github.com/ibm-cloud-architecture/refarch-cloudnative-api)                - The API gateway artifacts
- - [refarch-cloudnative-auth](https://github.com/ibm-cloud-architecture/refarch-cloudnative-auth)               - The security/OAauth artifact
- - [refarch-cloudnative-micro-inventory](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-inventory)    - The microservices (SpringBoot) app for Inventory data service (MySQL)
- - [refarch-cloudnative-micro-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-socialreview) - The microservices (SpringBoot) app for SocialReview data service (Cloudant)
+ - [refarch-cloudnative-auth](https://github.com/ibm-cloud-architecture/refarch-cloudnative-auth)               - The security authentication artifact
+ - [refarch-cloudnative-micro-inventory](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-inventory)    - The microservices (SpringBoot) app for Catalog (ElasticSearch) and Inventory data service (MySQL)
+ - [refarch-cloudnative-micro-orders](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-inventory)    - The microservices (IBM Liberty based) app for Order data service (MySQL)
+ - [refarch-cloudnative-micro-customer](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-customer)    - The microservices (SpringBoot) app to fetch customer profile from identity store
+ - [refarch-cloudnative-micro-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-socialreview) - The microservices (Serverless OpenWhisk) app for SocialReview data service (Cloudant)
  - [refarch-cloudnative-netflix-eureka](https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-eureka)           - Contains the Eureka containers for Microservices foundation
  - [refarch-cloudnative-netflix-zuul]( https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-zuul)           - Contains the Eureka containers for Microservices foundation  
- - [refarch-cloudnative-mysql](https://github.com/ibm-cloud-architecture/refarch-cloudnative-mysql)              - The MySQL Docker container and database DDL
 
-This project contains tutorials for setting up CI/CD pipleine for the scenarios.  The tutorial is shown below.  
- - [refarch-cloudnative-devops](https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops)             - The DevOps assets will be managed here
+
+This project contains tutorials for setting up CI/CD pipeline for the scenarios. The tutorial is shown below.  
+ - [refarch-cloudnative-devops](https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops)             - The DevOps assets are managed here
 
 This project contains tutorials for setting up Resiliency such as High Availability, Failover, and Disaster Recovery for the above application.
  - [refarch-cloudnative-resiliency](https://github.com/ibm-cloud-architecture/refarch-cloudnative-resiliency)   - The Resiliency Assets will be managed here
