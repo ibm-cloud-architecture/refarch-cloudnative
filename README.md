@@ -124,7 +124,7 @@ After completing this step, you should have the Order microservice deployed in B
  Please follow the instruction in  [refarch-cloudnative-micro-orders](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-orders) repository to build and deploy Catalog and Inventory microservices.
 
 
-## Building External Facing Microservices with Cloud Foundry and API Connect
+## Publish APIs and setup API Gateway with Bluemix API Connect
 
 ### Step 7:  Setup your API Connect Gateway
 
