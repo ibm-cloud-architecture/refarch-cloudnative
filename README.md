@@ -2,47 +2,48 @@
 
 ## Architecture
 
-This project provides is a Reference Implementation for building an OmniChannel Application using a microservices architecture.  The Logical Architecture for this reference implementation is shown in the picture below.  
+This project provides is a Reference Implementation for building a cloud-native OmniChannel Application using a Microservices architecture.  The Logical Architecture for this reference implementation is shown in the picture below.  
 
    ![Application Architecture](static/imgs/app_architecture.png?raw=true)
 
 ## Application Overview
 
-The application is a simple Shopping Application that displays a List of Inventory as well as a Social Review.  Both the Mobile App and Web App rely on separate Microservices to retrieve the Inventory data along with the review.  
+The application is a simple store front shopping application that displays a catalog of antique computing devices, where users can buy and add Social Review comments.  It has Web and Mobile interface, both the Mobile App and Web App rely on separate BFF (Backend for Frontend) services to interact with the backend data.  
 
 There are several components of this architecture.  
 
-- This OmniChannel application contains both a [Native iOS Application](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/) and an [angular](https://angularjs.org/) based web application.  The diagram depicts them as a Device and Browser.  
+- This OmniChannel application contains both a [Native iOS Application](https://developer.apple.com/library/content/referencelibrary/GettingStarted/DevelopiOSAppsSwift/) and an [AngularJS](https://angularjs.org/) based web application.  The diagram depicts them as a Device and Browser.  
 - The iOS application uses the [IBM Mobile Analytics Service](https://new-console.ng.bluemix.net/catalog/services/mobile-analytics/) to collect device analytics for operations and business
-- Both Client Applications make API calls through an API Gateway.  The API Gateway is [API Connect](https://new-console.ng.bluemix.net/catalog/services/api-connect/).  API Connect provides an OAuth Provider as well, allowing you to implement API Security.  
-- The API's are implemented as Node JS Microservices, we call BFFs following the [Backend for Frontends](http://samnewman.io/patterns/architectural/bff/) pattern.  In this Layer, front end developers usually write backend logic for their front end.  The Inventory BFF is implemented using the Express Framework.  The Social Review BFF is implemented using [API Connect's loopback framework](https://docs.strongloop.com/display/APIC/Using+LoopBack+with+IBM+API+Connect).  These Microservices run in Bluemix as Cloud Foundry Applications.  
-- The Node JS BFFs invoke another layer of reusable Java Microservices.  In a real world project, this is sometimes written by a different team.  These reusable microservices are written in Java using [SpringBoot](http://projects.spring.io/spring-boot/).  They run inside [IBM Containers](https://new-console.ng.bluemix.net/catalog/images) using [Docker](https://www.docker.com/).  
-- Node BFF's and Java Microservices communicate to each other using the [Netflix OSS Framework](https://netflix.github.io/).  In this case, we run several Netflix components in Bluemix.
+- Both Client Applications (or via BFF) make API calls through an API Gateway.  The API Gateway is [API Connect](https://new-console.ng.bluemix.net/catalog/services/api-connect/).  API Connect provides an OAuth Provider as well, allowing you to implement API Security.  
+- The Web and Mobile app invoke their own backend Microservices to fetch data, we call this component BFFs following the [Backend for Frontends](http://samnewman.io/patterns/architectural/bff/) pattern.  In this Layer, front end developers usually write backend logic for their front end.  The Web BFF is implemented using the Node.js Express Framework.  The Mobile iOS BFF is implemented using Server side [Swift](https://www.ibm.com/cloud-computing/bluemix/swift).  These Microservices run in Bluemix as Cloud Foundry Applications.  
+- These BFFs invoke another layer of reusable Java Microservices.  In a real world project, this is sometimes written by a different team.  These reusable microservices are written in Java using [SpringBoot](http://projects.spring.io/spring-boot/).  They run inside [IBM Containers](https://new-console.ng.bluemix.net/catalog/images) using [Docker](https://www.docker.com/).
+- The SocialReview microservices is implemented with Serverless technologies on [Bluemix OpenWhisk](https://console.ng.bluemix.net/openwhisk/). It exposes itself as consumable REST API via API gateway mentioned above.  
+- BFFs, OpneWhisk and Java Microservices communicate to each other using the [Netflix OSS Framework](https://netflix.github.io/).  In this case, we run several Netflix components in Bluemix.
     - [Zuul](https://github.com/Netflix/zuul) provides a proxy layer for the microservices.  
     - [Eureka](https://github.com/Netflix/eureka) provides a Service Registry.  The reusable Java Microservices register themselves to Eureka which allows clients to find them.
     - [Hystrix](https://github.com/Netflix/hystrix) Provides an implementation of the [Circuit Breaker Pattern](http://martinfowler.com/bliki/CircuitBreaker.html).  This component runs as library inside the Java Applications.  This component them forward Service Availability information to the Hystrix Dashboard.  
-- The Java Microservices retrieve their data from databases.  The Inventory Application using [MySQL](https://www.mysql.com/).  In this example, we run MySQL in a Docker Container for Development (In a production environment, it runs on our Infrastructure as a Service layer, [Softlayer](http://www.softlayer.com))  The resiliency and DevOps section will explain that.  The SocialReview Java Microservice relies on [Cloudant](https://new-console.ng.bluemix.net/catalog/services/cloudant-nosql-db/) as its Database.
-
+- The Java Microservices retrieve their data from databases.  The Catalog service retrieves items from in-memory datasource using [ElasticSearch](https://www.elastic.co/). The Inventory Service using [MySQL](https://www.mysql.com/).  In this example, we run MySQL in a Docker Container for Development (In a production environment, it runs on our Infrastructure as a Service layer, [Bluemix Infrastructure](https://console.ng.bluemix.net/catalog/?category=infrastructure))  The resiliency and DevOps section will explain that.  The SocialReview Microservice relies on [Cloudant](https://new-console.ng.bluemix.net/catalog/services/cloudant-nosql-db/) as its Database. The application also relies on [Bluemix Object Storage](https://console.ng.bluemix.net/catalog/object-storage/) to store unstructured data such as images.
 
 ## Project repositories:
 
-This project runs itself like a microservice project, as such each component in the architecture has its own Git Repository and tutorial listed below.  
+This project organized itself like a microservice project, as such each component in the architecture has its own Git Repository and tutorial listed below.  
 
  - [refarch-cloudnative](https://github.com/ibm-cloud-architecture/refarch-cloudnative)                    - The root repository (Current repository)
- - [refarch-cloudnative-bluecompute-mobile](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-mobile) - The BlueCompute client iOS application
- - [refarch-cloudnative-bluecompute-web](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web)    - The BlueCompute client Web application
- - [refarch-cloudnative-bff-inventory](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bff-inventory)      - The cloud Foundry node.js app for Inventory bff
- - [refarch-cloudnative-bff-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bff-socialreview)   - The cloud Foundry node.js app for SocialReview bff
+ - [refarch-cloudnative-bluecompute-mobile](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-mobile) - The BlueCompute client iOS and Android applications
+ - [refarch-cloudnative-bluecompute-web](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web)    - The BlueCompute Web application with BFF services
+ - [refarch-cloudnative-bluecompute-bff-ios](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-bff-ios)   - The Swift based BFF application for the iOS application
  - [refarch-cloudnative-api](https://github.com/ibm-cloud-architecture/refarch-cloudnative-api)                - The API gateway artifacts
- - [refarch-cloudnative-auth](https://github.com/ibm-cloud-architecture/refarch-cloudnative-auth)               - The security/OAauth artifact
- - [refarch-cloudnative-micro-inventory](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-inventory)    - The microservices (SpringBoot) app for Inventory data service (MySQL)
- - [refarch-cloudnative-micro-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-socialreview) - The microservices (SpringBoot) app for SocialReview data service (Cloudant)
+ - [refarch-cloudnative-auth](https://github.com/ibm-cloud-architecture/refarch-cloudnative-auth)               - The security authentication artifact
+ - [refarch-cloudnative-micro-inventory](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-inventory)    - The microservices (SpringBoot) app for Catalog (ElasticSearch) and Inventory data service (MySQL)
+ - [refarch-cloudnative-micro-orders](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-orders)    - The microservices (IBM Liberty based) app for Order data service (MySQL)
+ - [refarch-cloudnative-micro-customer](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-customer)    - The microservices (SpringBoot) app to fetch customer profile from identity store
+ - [refarch-cloudnative-micro-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-socialreview) - The microservices (Serverless OpenWhisk) app for SocialReview data service (Cloudant)
  - [refarch-cloudnative-netflix-eureka](https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-eureka)           - Contains the Eureka containers for Microservices foundation
- - [refarch-cloudnative-netflix-zuul]( https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-zuul)           - Contains the Eureka containers for Microservices foundation  
- - [refarch-cloudnative-mysql](https://github.com/ibm-cloud-architecture/refarch-cloudnative-mysql)              - The MySQL Docker container and database DDL
+ - [refarch-cloudnative-netflix-zuul]( https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-zuul)           - Contains the Zuul proxy containers for Microservices foundation  
 
-This project contains tutorials for setting up CI/CD pipleine for the scenarios.  The tutorial is shown below.  
- - [refarch-cloudnative-devops](https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops)             - The DevOps assets will be managed here
+
+This project contains tutorials for setting up CI/CD pipeline for the scenarios. The tutorial is shown below.  
+ - [refarch-cloudnative-devops](https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops)             - The DevOps assets are managed here
 
 This project contains tutorials for setting up Resiliency such as High Availability, Failover, and Disaster Recovery for the above application.
  - [refarch-cloudnative-resiliency](https://github.com/ibm-cloud-architecture/refarch-cloudnative-resiliency)   - The Resiliency Assets will be managed here
@@ -58,8 +59,8 @@ runtimes. Additionally you will need to configure your system to run the iOS and
 #### Prerequisites
 
 - Install Java JDK 1.8 and ensure it is available in your PATH
-- Install Node.js version 0.12.0 or version 4.x
-- Install Docker on Windows or Mac
+- [Install Node.js](https://nodejs.org/) version 0.12.0 or version 4.x
+- [Install Docker](https://docs.docker.com/engine/installation/) on Windows or Mac
 - Login to your Bluemix account or register for a new account [here](https://bluemix.net/registration)
 
 
@@ -77,7 +78,6 @@ This walkthrough uses the `cf` tool.
 
 
 
-
 #### Get application source code
 
 - Clone the base repository:
@@ -89,34 +89,44 @@ This walkthrough uses the `cf` tool.
 
 ## Building Microservices with Docker Containers    
 
-### Step 2: Setup MySQL database and Deploy Inventory microservice as Bluemix Container
+### Step 2: Deploy Netflix Eureka/Zuul components to Bluemix Container
 
-After completing this step, you should have Inventory microservice deployed in Bluemix and interacting with MySQL database. You can unit test the microservice as documented in the instruction.
-
- - Setup MySQL   
- Please follow the instruction in [refarch-cloudnative-mysql](https://github.com/ibm-cloud-architecture/refarch-cloudnative-mysql) repository to setup the MySQL database.
-
- - Build and Deploy the Inventory microservice
- Please follow the instruction in [refarch-cloudnative-micro-inventory](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-inventory) repository to setup the MySQL database.
-
-
-### Step 3: Provision Cloudant database and Deploy SocialReview microservice as Bluemix Container
-
-After completing this step, you should have SocialReview microservice deployed in Bluemix and interacting with hosted Cloudant database. You can unit test the micorservice as documented in the instruction.
-
-Please follow the instruction in [refarch-cloudnative-micro-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-socialreview) repository to setup the Cloudant database and build/deploy the microservice to Bluemix.
-
-### Step 4: Deploy Netflix Eureka/Zuul components to Bluemix Container
-
-We used the Netflix OSS stack to provide some of the microservices foundation services such as service registry and proxy/load balancer. Specifically, we use the Eureka as registry and Zuul as proxy.
+We used the Netflix OSS stack to provide some of the Microservices foundation services such as service registry and proxy/load balancer.
 
 Please follow the instruction in [refarch-cloudnative-netflix-eureka](https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-eureka) repository to deploy Eureka to Bluemix.
 
 Please follow the instruction in [refarch-cloudnative-netflix-zuul]( https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-zuul) repository to deploy Zuul to Bluemix.  
 
-## Building External Facing Microservices with Cloud Foundry and API Connect
+### Step 3: Deploy Catalog and Inventory microservices to Bluemix Container
 
-### Step 5:  Setup your API Connect Gateway
+After completing this step, you should have the Catalog and Inventory microservices deployed in Bluemix and interacting with ElasticSearch and MySQL database. You can unit test the microservice as documented in the instruction.
+
+ Please follow the instruction in  [refarch-cloudnative-micro-inventory](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-inventory) repository to build and deploy Catalog and Inventory microservices.
+
+### Step 4: Deploy Customer and Authentication microservices to Bluemix Container
+
+After completing this step, you should have Customer microservice deployed in Bluemix and interacting with hosted Cloudant database as user identity store. And you should have Authentication service deployed to be used API Connect OAuth flow.
+
+ - Please follow the instruction in [refarch-cloudnative-micro-customer](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-customer) repository to setup the Cloudant database and build/deploy the Customer microservice to Bluemix.
+ - Please follow the instruction in [refarch-cloudnative-auth](https://github.com/ibm-cloud-architecture/refarch-cloudnative-auth) repository to build/deploy the Auth microservice to Bluemix.
+
+
+### Step 5: Provision Watson Analytic services and Deploy SocialReview microservice to Bluemix OpenWhisk runtime
+
+After completing this step, you should have SocialReview microservice deployed in Bluemix OpenWhisk and interacting with hosted Cloudant database. You should also have Watson tone analyzer provisioned.
+
+Please follow the instruction in [refarch-cloudnative-micro-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-socialreview) repository to build/deploy the microservice to Bluemix.
+
+### Step 6: Deploy Order microservice to Bluemix Container
+
+After completing this step, you should have the Order microservice deployed in Bluemix and interacting with MessageHub and MySQL database. You can unit test the microservice as documented in the instruction.
+
+ Please follow the instruction in  [refarch-cloudnative-micro-orders](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-orders) repository to build and deploy Catalog and Inventory microservices.
+
+
+## Publish APIs and setup API Gateway with Bluemix API Connect
+
+### Step 7:  Setup your API Connect Gateway
 
 #### Provision the API Connect Service
 
@@ -142,46 +152,32 @@ To install the APIC Connect CLI:
 
 ```
 $ npm install -g apiconnect
-$ apic -version
+$ apic --version
 ```
 
 That should install the tool and print the version number after the last command.
 
 
+### Step 8: Publish application APIs to Bluemix API Connect
 
-### Step 6: Deploy Inventory BFF Node.js application to Bluemix Cloud Foundry
-
-This bff application will proxy (through Zuul) to the inventory microservice. It also exposes services to IBM API Connect for the Mobile and Web application to consume.
-
-Please follow the instruction in [refarch-cloudnative-bff-inventory](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bff-inventory) repository to build/deploy the Inventory Node.js application to Bluemix Cloud Foundry runtime.
-
-
-### Step 7: Deploy SocialReview BFF Loopback application to Bluemix Cloud Foundry
-
-This Loopback application will proxy (through Zuul) to the SocialReview microservice. It also exposes services to IBM API Connect for the Mobile and Web application to consume.
-
-Please follow the instruction in [refarch-cloudnative-bff-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bff-socialreview) repository to build/deploy the SocialReview Loopback application to Bluemix Cloud Foundry runtime.
-
-
-### Step 8: Publish Inventory and SocialReview APIs to Bluemix API Connect
-
-Once you have the backend application deployed, it is time to publish the APIs to the IBM Bluemix API connect and Setup developerPortal to consume the API.
+Once you have all the backend application (Catalog/Inventory/Customer/Order/SocialReview) deployed, it is time to publish the APIs to the IBM Bluemix API connect and Setup developerPortal to consume the API.
 
 Please follow the instruction in [refarch-cloudnative-api](https://github.com/ibm-cloud-architecture/refarch-cloudnative-api) repository to publish APIs to Bluemix API Connect runtime.
 
 ## Building Web and Mobile Applications
 
-### Step 9: Integrate the BlueCompute iOS app with IBM Cloud and Mobile Analytics
+### Step 10: Deploy the BlueCompute Web app
+
+This step will deploy the Node.js application containing both the Web BFF and the front end AngularJS application.
+
+Please follow the instruction in [refarch-cloudnative-bluecompute-web](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web) repository to setup and validate your Web application.
+
+### Step 10: Integrate the BlueCompute iOS app with IBM Cloud and Mobile Analytics
 
 Time to test the application end-to-end. You can start with running the iOS application to integrate with the APIs as well as monitoring the application using Bluemix Mobile Analytics service.
 
 Please follow the instruction in [refarch-cloudnative-bluecompute-mobile](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-mobile) repository to setup your iOS application.
 
-### Step 10: Integrate BlueCompute Web app with IBM Cloud
-
-You can also validate the reference implementation of the solution by running the BlueCompute Web application.
-
-Please follow the instruction in [refarch-cloudnative-bluecompute-web](https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web) repository to setup your Web application.
 
 ## DevOps automation, Resiliency and Cloud Management and Monitoring
 
@@ -195,4 +191,4 @@ For guidance on how to manage and monitor the BlueCompute solution, please check
 Please check [this repository](https://github.com/ibm-cloud-architecture/refarch-cloudnative-resiliency) on instructions and tools to improve availability and performances of the BlueCompute application.
 
 ### Secure The Application
-Please review [this page](https://github.com/ibm-cloud-architecture/refarch-cloudnative/blob/master/static/security.md) on how to secure the solution end-to-end.
+Please review [this page](https://github.com/ibm-cloud-architecture/refarch-cloudnative/blob/master/static/security.md) on how we secure the solution end-to-end.
