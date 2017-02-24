@@ -35,11 +35,11 @@ This project organized itself like a microservice project, as such each componen
  - [refarch-cloudnative-api](https://github.com/ibm-cloud-architecture/refarch-cloudnative-api)                - The API gateway artifacts
  - [refarch-cloudnative-auth](https://github.com/ibm-cloud-architecture/refarch-cloudnative-auth)               - The security authentication artifact
  - [refarch-cloudnative-micro-inventory](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-inventory)    - The microservices (SpringBoot) app for Catalog (ElasticSearch) and Inventory data service (MySQL)
- - [refarch-cloudnative-micro-orders](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-inventory)    - The microservices (IBM Liberty based) app for Order data service (MySQL)
+ - [refarch-cloudnative-micro-orders](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-orders)    - The microservices (IBM Liberty based) app for Order data service (MySQL)
  - [refarch-cloudnative-micro-customer](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-customer)    - The microservices (SpringBoot) app to fetch customer profile from identity store
  - [refarch-cloudnative-micro-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-socialreview) - The microservices (Serverless OpenWhisk) app for SocialReview data service (Cloudant)
  - [refarch-cloudnative-netflix-eureka](https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-eureka)           - Contains the Eureka containers for Microservices foundation
- - [refarch-cloudnative-netflix-zuul]( https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-zuul)           - Contains the Eureka containers for Microservices foundation  
+ - [refarch-cloudnative-netflix-zuul]( https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-zuul)           - Contains the Zuul proxy containers for Microservices foundation  
 
 
 This project contains tutorials for setting up CI/CD pipeline for the scenarios. The tutorial is shown below.  
@@ -59,8 +59,8 @@ runtimes. Additionally you will need to configure your system to run the iOS and
 #### Prerequisites
 
 - Install Java JDK 1.8 and ensure it is available in your PATH
-- Install Node.js version 0.12.0 or version 4.x
-- Install Docker on Windows or Mac
+- [Install Node.js](https://nodejs.org/) version 0.12.0 or version 4.x
+- [Install Docker](https://docs.docker.com/engine/installation/) on Windows or Mac
 - Login to your Bluemix account or register for a new account [here](https://bluemix.net/registration)
 
 
@@ -78,7 +78,6 @@ This walkthrough uses the `cf` tool.
 
 
 
-
 #### Get application source code
 
 - Clone the base repository:
@@ -90,30 +89,40 @@ This walkthrough uses the `cf` tool.
 
 ## Building Microservices with Docker Containers    
 
-### Step 2: Setup MySQL database and Deploy Inventory microservice as Bluemix Container
+### Step 2: Deploy Netflix Eureka/Zuul components to Bluemix Container
 
-After completing this step, you should have Inventory microservice deployed in Bluemix and interacting with MySQL database. You can unit test the microservice as documented in the instruction.
-
- - Setup MySQL   
- Please follow the instruction in [refarch-cloudnative-mysql](https://github.com/ibm-cloud-architecture/refarch-cloudnative-mysql) repository to setup the MySQL database.
-
- - Build and Deploy the Inventory microservice
- Please follow the instruction in [refarch-cloudnative-micro-inventory](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-inventory) repository to setup the MySQL database.
-
-
-### Step 3: Provision Cloudant database and Deploy SocialReview microservice as Bluemix Container
-
-After completing this step, you should have SocialReview microservice deployed in Bluemix and interacting with hosted Cloudant database. You can unit test the micorservice as documented in the instruction.
-
-Please follow the instruction in [refarch-cloudnative-micro-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-socialreview) repository to setup the Cloudant database and build/deploy the microservice to Bluemix.
-
-### Step 4: Deploy Netflix Eureka/Zuul components to Bluemix Container
-
-We used the Netflix OSS stack to provide some of the microservices foundation services such as service registry and proxy/load balancer. Specifically, we use the Eureka as registry and Zuul as proxy.
+We used the Netflix OSS stack to provide some of the Microservices foundation services such as service registry and proxy/load balancer.
 
 Please follow the instruction in [refarch-cloudnative-netflix-eureka](https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-eureka) repository to deploy Eureka to Bluemix.
 
 Please follow the instruction in [refarch-cloudnative-netflix-zuul]( https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-zuul) repository to deploy Zuul to Bluemix.  
+
+### Step 3: Deploy Catalog and Inventory microservices to Bluemix Container
+
+After completing this step, you should have the Catalog and Inventory microservices deployed in Bluemix and interacting with ElasticSearch and MySQL database. You can unit test the microservice as documented in the instruction.
+
+ Please follow the instruction in  [refarch-cloudnative-micro-inventory](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-inventory) repository to build and deploy Catalog and Inventory microservices.
+
+### Step 4: Deploy Customer and Authentication microservices to Bluemix Container
+
+After completing this step, you should have Customer microservice deployed in Bluemix and interacting with hosted Cloudant database as user identity store. And you should have Authentication service deployed to be used API Connect OAuth flow.
+
+ - Please follow the instruction in [refarch-cloudnative-micro-customer](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-customer) repository to setup the Cloudant database and build/deploy the Customer microservice to Bluemix.
+ - Please follow the instruction in [refarch-cloudnative-auth](https://github.com/ibm-cloud-architecture/refarch-cloudnative-auth) repository to build/deploy the Auth microservice to Bluemix.
+
+
+### Step 5: Provision Watson Analytic services and Deploy SocialReview microservice to Bluemix OpenWhisk runtime
+
+After completing this step, you should have SocialReview microservice deployed in Bluemix OpenWhisk and interacting with hosted Cloudant database. You should also have Watson tone analyzer provisioned.
+
+Please follow the instruction in [refarch-cloudnative-micro-socialreview](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-socialreview) repository to build/deploy the microservice to Bluemix.
+
+### Step 6: Deploy Order microservice to Bluemix Container
+
+After completing this step, you should have the Order microservice deployed in Bluemix and interacting with MessageHub and MySQL database. You can unit test the microservice as documented in the instruction.
+
+ Please follow the instruction in  [refarch-cloudnative-micro-orders](https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-orders) repository to build and deploy Catalog and Inventory microservices.
+
 
 ## Building External Facing Microservices with Cloud Foundry and API Connect
 

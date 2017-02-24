@@ -15,13 +15,13 @@ fi
 BASEREPO="https://github.com/ibm-cloud-architecture/refarch-cloudnative"
 REPO_MOBILE="https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-mobile"
 REPO_WEB="https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-web"
-REPO_BFF_INVENTORY="https://github.com/ibm-cloud-architecture/refarch-cloudnative-bff-inventory"
-REPO_BFF_REVIEW="https://github.com/ibm-cloud-architecture/refarch-cloudnative-bff-socialreview"
+REPO_BFF_IOS="https://github.com/ibm-cloud-architecture/refarch-cloudnative-bluecompute-bff-ios"
+REPO_MICRO_ORDER="https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-orders"
 REPO_API="https://github.com/ibm-cloud-architecture/refarch-cloudnative-api"
 REPO_AUTH="https://github.com/ibm-cloud-architecture/refarch-cloudnative-auth"
 REPO_MICRO_INVENTORY="https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-inventory"
 REPO_MICRO_REVIEW="https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-socialreview"
-REPO_MICRO_FOUDATION="https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-foundation"
+REPO_MICRO_CUSTOMER="https://github.com/ibm-cloud-architecture/refarch-cloudnative-micro-customer"
 REPO_MYSQL="https://github.com/ibm-cloud-architecture/refarch-cloudnative-mysql"
 REPO_DEVOPS="https://github.com/ibm-cloud-architecture/refarch-cloudnative-devops"
 REPO_NETFLIX_EUREKA="https://github.com/ibm-cloud-architecture/refarch-cloudnative-netflix-eureka"
@@ -46,13 +46,13 @@ REPO=${REPO_WEB}
 PROJECT=$(echo ${REPO} | cut -d/ -f5)
 git clone -b ${DEFAULT_BRANCH} ${REPO} ../${PROJECT}
 
-echo -e '\nClone Inventory BFF project'
-REPO=${REPO_BFF_INVENTORY}
+echo -e '\nClone Mobile iOS BFF project'
+REPO=${REPO_BFF_IOS}
 PROJECT=$(echo ${REPO} | cut -d/ -f5)
 git clone -b ${DEFAULT_BRANCH} ${REPO} ../${PROJECT}
 
-echo -e '\nClone SocialReview BFF project'
-REPO=${REPO_BFF_REVIEW}
+echo -e '\nClone Order Microservice project'
+REPO=${REPO_MICRO_ORDER}
 PROJECT=$(echo ${REPO} | cut -d/ -f5)
 git clone -b ${DEFAULT_BRANCH} ${REPO} ../${PROJECT}
 
@@ -76,8 +76,8 @@ REPO=${REPO_MICRO_REVIEW}
 PROJECT=$(echo ${REPO} | cut -d/ -f5)
 git clone -b ${DEFAULT_BRANCH} ${REPO} ../${PROJECT}
 
-echo -e '\nClone Microservice Foundation project'
-REPO=${REPO_MICRO_FOUDATION}
+echo -e '\nClone Customer Microservice project'
+REPO=${REPO_MICRO_CUSTOMER}
 PROJECT=$(echo ${REPO} | cut -d/ -f5)
 git clone -b ${DEFAULT_BRANCH} ${REPO} ../${PROJECT}
 
