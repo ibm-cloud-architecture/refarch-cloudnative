@@ -166,7 +166,7 @@ Please follow the instruction in [refarch-cloudnative-api](https://github.com/ib
 
 ## Building Web and Mobile Applications
 
-### Step 10: Deploy the BlueCompute Web app
+### Step 9: Deploy the BlueCompute Web app
 
 This step will deploy the Node.js application containing both the Web BFF and the front end AngularJS application.
 
