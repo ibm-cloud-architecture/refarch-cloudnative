@@ -8,7 +8,7 @@ This project provides is a Reference Implementation for building a cloud-native 
 
 ## Application Overview
 
-The application is a simple store front shopping application that displays a catalog of antique computing devices, where users can buy and add Social Review comments.  It has Web and Mobile interface, both the Mobile App and Web App rely on separate BFF (Backend for Frontend) services to interact with the backend data.  
+The application is a simple store front shopping application that displays a catalog of antique computing devices, where users can buy and add review comments.  It has Web and Mobile interface, both the Mobile App and Web App rely on separate BFF (Backend for Frontend) services to interact with the backend data.  
 
 There are several components of this architecture.  
 
@@ -22,7 +22,7 @@ There are several components of this architecture.
     - [Zuul](https://github.com/Netflix/zuul) provides a proxy layer for the microservices.  
     - [Eureka](https://github.com/Netflix/eureka) provides a Service Registry.  The reusable Java Microservices register themselves to Eureka which allows clients to find them.
     - [Hystrix](https://github.com/Netflix/hystrix) Provides an implementation of the [Circuit Breaker Pattern](http://martinfowler.com/bliki/CircuitBreaker.html).  This component runs as library inside the Java Applications.  This component them forward Service Availability information to the Hystrix Dashboard.  
-- The Java Microservices retrieve their data from databases.  The Catalog service retrieves items from in-memory datasource using [ElasticSearch](https://www.elastic.co/). The Inventory Service using [MySQL](https://www.mysql.com/).  In this example, we run MySQL in a Docker Container for Development (In a production environment, it runs on our Infrastructure as a Service layer, [Bluemix Infrastructure](https://console.ng.bluemix.net/catalog/?category=infrastructure))  The resiliency and DevOps section will explain that.  The SocialReview Microservice relies on [Cloudant](https://new-console.ng.bluemix.net/catalog/services/cloudant-nosql-db/) as its Database. The application also relies on [Bluemix Object Storage](https://console.ng.bluemix.net/catalog/object-storage/) to store unstructured data such as images.
+- The Java Microservices retrieve their data from databases.  The Catalog service retrieves items from a searchable JSON datasource using [ElasticSearch](https://www.elastic.co/). The Inventory Service using [MySQL](https://www.mysql.com/).  In this example, we run MySQL in a Docker Container for Development (In a production environment, it runs on our Infrastructure as a Service layer, [Bluemix Infrastructure](https://console.ng.bluemix.net/catalog/?category=infrastructure))  The resiliency and DevOps section will explain that.  The SocialReview Microservice relies on [Cloudant](https://new-console.ng.bluemix.net/catalog/services/cloudant-nosql-db/) as its Database. The application also relies on [Bluemix Object Storage](https://console.ng.bluemix.net/catalog/object-storage/) to store unstructured data such as images.
 
 ## Project repositories:
 
