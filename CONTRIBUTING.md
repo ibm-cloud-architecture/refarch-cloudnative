@@ -44,7 +44,7 @@ We really value contributions, and to maximize the impact of code contributions,
 The internet is littered with guides and information on how to use and understand git.
 However, here's a compact guide that follows the suggested workflow
 
-![Github flow](https://github.com/ibm-cloud-architecture/refarch-cloudnative/tree/master/static/imgs/github_flow.png)
+![Github flow](https://raw.githubusercontent.com/ibm-cloud-architecture/refarch-cloudnative/master/static/imgs/github_flow.png)
 
 1. Fork the desired repo in github.
 
