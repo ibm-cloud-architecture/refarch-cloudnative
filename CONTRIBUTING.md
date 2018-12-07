@@ -1,5 +1,5 @@
 ## Contributing to IBM Cloud Architecture reference applications
-Anyone can contribute to IBM Cloud Architecture reference applications and their associated projects, whether you are an IBMer or not. 
+Anyone can contribute to IBM Cloud Architecture reference applications and their associated projects, whether you are an IBMer or not.
 We welcome your collaboration & contributions happily, as our reference applications are meant to reflect your real world scenarios.
 There are multiple ways to contribute: report bugs and improvement suggestions, improve documentation, and contribute code.
 
@@ -11,13 +11,13 @@ If you would like to contribute your experience with an IBM Cloud Architecture p
 Before opening a new issue, please reference the existing list to make sure a similar or duplicate item does not already exist.  Otherwise, please be as explicit as possible when creating the new item and be sure to include the following:
 
 - **Bug reports**
-  - Specific Project Version 
+  - Specific Project Version
   - Deployment environment
   - A minimal, but complete, setup of steps to recreate the problem
 - **Documentation changes**
   - URL to existing incorrect or incomplete documentation (either in the project's GitHub repo or external product documentation)
   - Updates required to correct current inconsistency
-  - If possible, a link to a project fork, sample, or workflow to expose the gap in documentation. 
+  - If possible, a link to a project fork, sample, or workflow to expose the gap in documentation.
 - **Feature requests**
   - Complete description of project feature request, including but not limited to, components of the existing project that are impacted, as well as additional components that may need to be created.
   - A minimal, but complete, setup of steps to recreate environment necessary to identify the new feature's current gap.
@@ -44,6 +44,8 @@ We really value contributions, and to maximize the impact of code contributions,
 The internet is littered with guides and information on how to use and understand git.
 However, here's a compact guide that follows the suggested workflow
 
+![Github flow](https://github.com/ibm-cloud-architecture/refarch-cloudnative/tree/master/static/imgs/github_flow.png)
+
 1. Fork the desired repo in github.
 
 2. Clone your repo to your local computer.
@@ -52,12 +54,12 @@ However, here's a compact guide that follows the suggested workflow
 
     Note: Guide for step 1-3 here: [forking a repo](https://help.github.com/articles/fork-a-repo/)
 
-4. Create new development branch off the targeted upstream branch.  This will often be either `master` or `integration`, depending upon the project's workflow.
+4. Create new development branch off the targeted upstream branch.  This will often be `master`.
 
     ```
-    git checkout -b <my-feature-dev> integration
+    git checkout -b <my-feature-branch> master
     ```
-    
+
 5. Do your work:
    - Write your code
    - Write your tests
@@ -65,29 +67,42 @@ However, here's a compact guide that follows the suggested workflow
    - Commit your intermediate changes as you go and as appropriate
    - Repeat until satisfied
 
-6. Rebase to the latest upstream changes, resolving any conflicts
+6. Fetch latest upstream changes (in case other changes had been delivered upstream while you were developing your new feature).
 
     ```
     git fetch upstream
-    git branch --set-upstream-to=upstream/integration
+    ```
+7. Rebase to the latest upstream changes, resolving any conflicts. This will 'replay' your local commits, one by one, after the changes delivered upstream while you were locally developing, letting you manually resolve any conflict.
+
+    ```
+    git branch --set-upstream-to=upstream/master
     git rebase
     ```
-
-7. Create a new branch off the integration branch to submit pull request from
-    
-    ```
-    git checkout -b <my-feature> integration
-    ```
+    Instructions on how to manually resolve a conflict and commit the new change or skip your local replayed commit will be presented on screen by the git CLI.
 
 8. Push the changes to your repository
 
     ```
-    git push origin <my-feature>
+    git push origin <my-feature-branch>
     ```
 
-10. Create a pull request against the same targeted upstream branch.
+9. Create a pull request against the same targeted upstream branch.
 
     [Creating a pull request](https://help.github.com/articles/creating-a-pull-request/)
+
+Once the pull request has been reviewed, accepted and merged into the main github repository, you should synchronise your remote and local forked github repository `master` branch with the upstream master branch. To do so:
+
+10. Pull to your local forked repository the latest changes upstream (that is, the pull request).
+
+    ```
+    git pull upstream master
+    ```
+
+11. Push those latest upstream changes pulled locally to your remote forked repository.
+
+    ```
+    git push origin master
+    ```
 
 ### What happens next?
 - All pull requests will be automatically built and unit tested by travis-ci, when implemented by that specific project.
